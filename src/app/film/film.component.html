@@ -1,0 +1,27 @@
+<div class="col-md-4">
+    <label for="name">Поиск</label>
+    <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="filmName" name="name" placeholder="enter name film...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" (click)="searchFilm()" [disabled]="!filmName" >Поиск</button>
+        </span>
+    </div>
+    <br>
+
+    <div *ngIf="searchedFilm">
+        <h3>Title: {{searchedFilm.Title}}</h3>
+        <img [src]="searchedFilm.Poster">
+        <br>
+        <button class="btn btn-default" role="button" (click)="addToList()">Добавить в список</button>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <h2>Список:</h2>
+    <div *ngFor="let film of listFilms">
+        <a [routerLink]="['/viewFilm', film.imdbID]" href="#" class="list-group-item">
+            {{film.Title}}
+        </a>
+        <button class="btn btn-default remove-btn" role="button" (click)="removeFromList(film)">X</button> 
+    </div>
+</div>

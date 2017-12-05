@@ -1,0 +1,8 @@
+.list-group-item{
+    float:left;
+    width:250px;
+}
+
+.remove-btn{
+    height:42px;
+}
