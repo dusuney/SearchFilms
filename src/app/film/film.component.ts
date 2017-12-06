@@ -19,8 +19,8 @@ export class FilmComponent {
         this.filmService.getFilm(this.filmName).then(data => this.searchedFilm = data);
     }
 
-    addToList():void{
-        this.listFilms.push(this.searchedFilm);
+    addToList(film:any):void{
+        this.listFilms.push(film);
     }
 
     removeFromList(film):void{

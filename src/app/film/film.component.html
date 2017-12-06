@@ -9,10 +9,12 @@
     <br>
 
     <div *ngIf="searchedFilm">
-        <h3>Title: {{searchedFilm.Title}}</h3>
-        <img [src]="searchedFilm.Poster">
-        <br>
-        <button class="btn btn-default" role="button" (click)="addToList()">Добавить в список</button>
+        <div *ngFor="let film of searchedFilm.Search">
+            <h3>Title: {{film.Title}}</h3>
+            <img [src]="film.Poster">
+            <br>
+            <button class="btn btn-default" role="button" (click)="addToList(film)">Добавить в список</button>
+        </div>
     </div>
 </div>
 

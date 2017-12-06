@@ -4,3 +4,7 @@
     <img [src]="film.Poster">
     <p>{{film.Plot}}</p>
 </div>
+
+<div *ngIf="!film">
+    <h3>Не найдено</h3>
+</div>

@@ -8,7 +8,7 @@ export class FilmService {
     
     constructor(private http: Http) { }
 
-    private filmUrl = 'http://www.omdbapi.com/?t=';
+    private filmUrl = 'http://www.omdbapi.com/?s=';
     private headers = new Headers({ 'Content-Type': 'application/json' });
 
     getFilm(name: string): Promise<any> {
