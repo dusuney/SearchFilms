@@ -8,11 +8,14 @@ import { FilmService } from "../film.service";
 })
 export class FilmComponent {
     filmName:string = "";
-    listFilms:any[] = [];
+    listFilms:any;
     searchedFilm:any;
 
     ngOnInit() {
-        
+        this.listFilms=JSON.parse(localStorage.getItem('film'));
+        if(!this.listFilms){
+            this.listFilms = [];
+        }
     }
 
     searchFilm():void{
@@ -21,10 +24,12 @@ export class FilmComponent {
 
     addToList(film:any):void{
         this.listFilms.push(film);
+        localStorage.setItem('film', JSON.stringify(this.listFilms));
     }
 
     removeFromList(film):void{
         this.listFilms.splice(this.listFilms.indexOf(film),1);
+        localStorage.setItem('film', JSON.stringify(this.listFilms));
     }
 
     constructor(private filmService: FilmService) { 
